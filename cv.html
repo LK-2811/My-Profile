@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lovekeshwar Ranga - CV</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            color: #2c2c2c;
+            background: #f0f0f0;
+            line-height: 1.55;
+            font-size: 14.5px;
+        }
+        .page {
+            max-width: 960px;
+            margin: 2rem auto;
+            background: #fff;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #1a2744 0%, #2d4a7a 100%);
+            color: #fff;
+            padding: 2rem 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.75rem;
+        }
+        .profile-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255,255,255,0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            flex-shrink: 0;
+        }
+        .header-text { flex: 1; }
+        header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.15rem;
+        }
+        header h1 .aka {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #a8c4e0;
+            margin-left: 0.4rem;
+        }
+        header .title {
+            font-size: 1rem;
+            color: #a8c4e0;
+            margin-bottom: 0.75rem;
+        }
+        header .contact { font-size: 0.85rem; color: #ccc; }
+        header .contact a { color: #7db8e0; text-decoration: none; }
+        header .contact a:hover { text-decoration: underline; }
+        header .contact span { margin-right: 1.3rem; }
+
+        main { padding: 2rem 2.5rem; }
+        section { margin-bottom: 2rem; }
+        section:last-child { margin-bottom: 0; }
+        h2 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #1a2744;
+            border-bottom: 2px solid #1a2744;
+            padding-bottom: 0.35rem;
+            margin-bottom: 1rem;
+        }
+        .summary { font-size: 0.95rem; color: #444; line-height: 1.6; }
+
+        /* Timeline styles */
+        .timeline { position: relative; padding-left: 0; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 28px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #1a2744, #5a8abf, #ccc);
+            border-radius: 2px;
+        }
+        .timeline-company {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 72px;
+        }
+        .timeline-company:last-child { margin-bottom: 0; }
+        .timeline-logo-wrapper {
+            position: absolute;
+            left: 4px;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            border: 3px solid #1a2744;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            z-index: 2;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .timeline-logo {
+            width: 70%;
+            height: 70%;
+            object-fit: contain;
+        }
+        .timeline-company-header {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            margin-bottom: 0.6rem;
+            flex-wrap: wrap;
+        }
+        .timeline-company-name { font-size: 1.1rem; font-weight: 700; color: #1a2744; }
+        .timeline-company-tenure {
+            font-size: 0.8rem;
+            color: #888;
+            background: #f5f7fa;
+            padding: 0.12rem 0.55rem;
+            border-radius: 10px;
+        }
+        .timeline-roles {
+            border-left: 2px solid #e8ecf0;
+            padding-left: 1.2rem;
+            margin-left: 0.4rem;
+        }
+        .timeline-role {
+            position: relative;
+            margin-bottom: 1.1rem;
+        }
+        .timeline-role:last-child { margin-bottom: 0; }
+        .timeline-role::before {
+            content: '';
+            position: absolute;
+            left: -1.48rem;
+            top: 0.5rem;
+            width: 10px;
+            height: 10px;
+            background: #5a8abf;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 2px #5a8abf;
+        }
+        .timeline-role-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 0.25rem;
+        }
+        .timeline-role-title { font-weight: 700; font-size: 0.9rem; color: #333; }
+        .timeline-role-dates { font-size: 0.78rem; color: #888; font-weight: 500; }
+        .timeline-role ul { padding-left: 1.1rem; margin-top: 0.25rem; }
+        .timeline-role li { margin-bottom: 0.2rem; font-size: 0.87rem; color: #555; }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0.4rem 1.5rem;
+        }
+        .skills-grid li { font-size: 0.88rem; color: #444; list-style: disc; margin-left: 0.9rem; }
+
+        /* Education - Serpentine Timeline */
+        .serpent-timeline {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+        .serpent-timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, #1a2744, #5a8abf, #a8c4e0);
+            border-radius: 2px;
+            transform: translateY(-50%);
+        }
+        .serpent-milestone {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 18%;
+            z-index: 2;
+        }
+        .serpent-milestone:nth-child(odd) { padding-bottom: 4rem; }
+        .serpent-milestone:nth-child(even) { padding-top: 4rem; }
+        .serpent-milestone:nth-child(odd) .serpent-content { order: -1; margin-bottom: 0.6rem; }
+        .serpent-milestone:nth-child(even) .serpent-content { order: 1; margin-top: 0.6rem; }
+        .serpent-node {
+            width: 52px;
+            height: 52px;
+            background: #fff;
+            border: 3px solid #1a2744;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        .serpent-node img {
+            width: 70%;
+            height: 70%;
+            object-fit: contain;
+        }
+        .serpent-content { text-align: center; max-width: 130px; }
+        .serpent-content strong { display: block; font-size: 0.78rem; color: #1a2744; line-height: 1.3; margin-bottom: 0.15rem; }
+        .serpent-content .serpent-institution { font-size: 0.72rem; color: #666; display: block; }
+        .serpent-content .serpent-year {
+            font-size: 0.68rem;
+            color: #fff;
+            background: #1a2744;
+            padding: 0.08rem 0.45rem;
+            border-radius: 9px;
+            display: inline-block;
+            margin-top: 0.2rem;
+        }
+
+        /* Achievements */
+        .achievements li { margin-bottom: 0.3rem; font-size: 0.9rem; color: #444; padding-left: 0.2rem; }
+
+        /* About Me */
+        .about-me { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+        .about-card {
+            display: flex;
+            gap: 0.65rem;
+            padding: 0.85rem;
+            background: #f8f9fb;
+            border-radius: 10px;
+            border: 1px solid #e8ecf0;
+        }
+        .about-icon {
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            width: 2.2rem;
+            height: 2.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e8f0fa;
+            border-radius: 7px;
+        }
+        .about-text strong { display: block; font-size: 0.85rem; color: #1a2744; margin-bottom: 0.15rem; }
+        .about-text p { font-size: 0.8rem; color: #555; line-height: 1.45; margin: 0; }
+
+        /* Print styles */
+        @media print {
+            body { background: #fff; font-size: 13.5px; }
+            .page { box-shadow: none; margin: 0; border-radius: 0; max-width: 100%; }
+            header { padding: 1.75rem 2rem; }
+            main { padding: 1.75rem 2rem; }
+            section { margin-bottom: 1.75rem; }
+            .timeline::before { background: #333; }
+            .about-card { break-inside: avoid; }
+            .timeline-company { break-inside: avoid; }
+            .timeline-role { break-inside: avoid; }
+            .serpent-timeline { break-inside: avoid; }
+        }
+        @media (max-width: 640px) {
+            header, main { padding: 1.5rem; }
+            header { flex-direction: column; text-align: center; }
+            .profile-photo { width: 85px; height: 85px; }
+            .timeline-company { padding-left: 62px; }
+            .timeline-role-header { flex-direction: column; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .about-me { grid-template-columns: 1fr; }
+            .serpent-timeline { flex-direction: column; align-items: center; gap: 1.25rem; }
+            .serpent-timeline::before {
+                top: 0; bottom: 0; left: 50%; right: auto;
+                width: 3px; height: 100%;
+                transform: translateX(-50%);
+            }
+            .serpent-milestone { width: 100%; flex-direction: row; gap: 0.75rem; }
+            .serpent-milestone:nth-child(odd),
+            .serpent-milestone:nth-child(even) { padding: 0; }
+            .serpent-milestone:nth-child(odd) .serpent-content,
+            .serpent-milestone:nth-child(even) .serpent-content { order: 1; margin: 0; text-align: left; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header>
+            <img src="Logos/LK Picture.jpeg" alt="Lovekeshwar Ranga" class="profile-photo">
+            <div class="header-text">
+                <h1>Lovekeshwar Ranga <span class="aka">(aka LK)</span></h1>
+                <div class="title">Senior Engineering &amp; Delivery Leader | Enterprise GRC Platform | Director-level Programme Delivery</div>
+                <div class="contact">
+                    <span>Bangalore, India</span>
+                    <span><a href="mailto:lovekeshwar@gmail.com">lovekeshwar@gmail.com</a></span>
+                    <span><a href="https://www.linkedin.com/in/lk-sem/" target="_blank">LinkedIn</a></span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- SUMMARY -->
+            <section>
+                <h2>Professional Summary</h2>
+                <p class="summary">
+                    Senior engineering and delivery leader with 20+ years of experience driving complex, 
+                    large-scale enterprise programmes across telecom, risk, and compliance domains. 
+                    Currently leading BT Group's Risk &amp; Compliance Management platform strategy — 
+                    a £8M programme delivering £5M+ YoY savings — with a team of 160+ across 5 vendor partners 
+                    and multiple geographies. Proven ability to set up and own end-to-end enterprise delivery, 
+                    establish KPIs and OKRs to measure progress, implement Quality Management Systems aligned 
+                    to industry standards, and pass ISO audits consistently. Seeking Senior/Director-level 
+                    positions to lead complex enterprise and large-scale technology deliveries.
+                </p>
+            </section>
+
+            <!-- PROJECT DELIVERY & ENTERPRISE LEADERSHIP -->
+            <section>
+                <h2>Project Delivery &amp; Enterprise Leadership</h2>
+                <ul class="achievements">
+                    <li>Led end-to-end enterprise delivery for programmes spanning £8M+ budgets with 160+ team members across geographies</li>
+                    <li>Established KPIs and OKRs to monitor delivery health, track progress, and drive accountability</li>
+                    <li>Implemented Quality Management Systems (QMS) aligned to industry standards</li>
+                    <li>Passed ISO audits multiple times with distinction, demonstrating sustained compliance excellence</li>
+                    <li>Set up governance frameworks for multi-vendor, multi-geography delivery models</li>
+                    <li>Drove technology transformation, COTS-to-custom replacements, and environment migrations at enterprise scale</li>
+                    <li>Aligned 15 Group Risk Categories to a unified compliance and risk management toolset</li>
+                </ul>
+            </section>
+
+            <!-- KEY ACHIEVEMENTS -->
+            <section>
+                <h2>Key Achievements</h2>
+                <ul class="achievements">
+                    <li>Built an in-house GRC platform with £8M funding, delivering £5M+ YoY savings for BT Group</li>
+                    <li>Consolidated 50+ risk and compliance processes onto a single unified platform</li>
+                    <li>Replaced Salesforce, SAP GRC, and OneTrust with a purpose-built enterprise solution</li>
+                    <li>Installed Vodafone's production Order Management system for B2B</li>
+                    <li>Delivered complex OSS/BSS integrations with Huawei using Oracle and third-party products</li>
+                    <li>Transformed BT Global's Service Delivery technology stack end-to-end</li>
+                    <li>Migrated on-prem infrastructure to AWS; decomposed monoliths into microservices</li>
+                    <li>Delivered a BT Group Business Continuity Management app in 2 weeks with 2 people using AI-driven Spec Development</li>
+                </ul>
+            </section>
+
+            <!-- CAREER TIMELINE -->
+            <section>
+                <h2>Career History</h2>
+                <div class="timeline">
+
+                    <!-- BT Group -->
+                    <div class="timeline-company">
+                        <div class="timeline-logo-wrapper">
+                            <img src="Logos/BT Logo.jpeg" alt="BT Group" class="timeline-logo">
+                        </div>
+                        <div class="timeline-company-header">
+                            <span class="timeline-company-name">BT Group (British Telecom)</span>
+                            <span class="timeline-company-tenure">2013 – Present · 12+ years</span>
+                        </div>
+                        <div class="timeline-roles">
+                            <div class="timeline-role">
+                                <div class="timeline-role-header">
+                                    <span class="timeline-role-title">Senior Software Engineering Manager — GRC Platform Delivery</span>
+                                    <span class="timeline-role-dates">2021 – Present</span>
+                                </div>
+                                <ul>
+                                    <li>Own platform delivery for BT Group's Risk &amp; Compliance Management strategy</li>
+                                    <li>Lead 30 FTEs (India &amp; UK) and 130 subcontractors from 5 vendor partners</li>
+                                    <li>Manage £8M programme budget; delivered £5M+ YoY cost savings</li>
+                                    <li>Consolidated 50+ legacy processes; replaced Salesforce, SAP GRC, and OneTrust</li>
+                                    <li>Established KPIs, OKRs, and QMS aligned to ISO standards; passed audits with distinction</li>
+                                    <li>Collaborate with 15 Group Risk Categories to align tooling and process requirements</li>
+                                    <li>Led infrastructure transformation from on-prem to AWS; migrated monoliths to microservices architecture</li>
+                                    <li>Built systems for reliability and resilience on cloud-native AWS infrastructure</li>
+                                    <li>Adopted AI in SDLC — delivered a full Business Continuity Management application for BT Group in 2 weeks with just 2 people using Spec-Driven Development</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-role">
+                                <div class="timeline-role-header">
+                                    <span class="timeline-role-title">Engineering Manager — Service Delivery</span>
+                                    <span class="timeline-role-dates">2017 – 2021</span>
+                                </div>
+                                <ul>
+                                    <li>Led end-to-end SDLC for BT Global's Service Delivery technology stack</li>
+                                    <li>Drove technology transformation, environment migrations, and COTS-to-custom replacements</li>
+                                    <li>Set up delivery KPIs and governance for cross-functional engineering teams</li>
+                                    <li>Managed multi-geography teams and complex stakeholder ecosystems</li>
+                                    <li>Led cloud adoption — migrating on-prem workloads to AWS infrastructure</li>
+                                    <li>Decomposed monolithic applications into microservices for scalability and resilience</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-role">
+                                <div class="timeline-role-header">
+                                    <span class="timeline-role-title">Specialist Lead Developer → Design &amp; Development Lead</span>
+                                    <span class="timeline-role-dates">2013 – 2017</span>
+                                </div>
+                                <ul>
+                                    <li>Led design and development for order orchestration and order management systems</li>
+                                    <li>Solved complex problems in technology transformation and tool migration</li>
+                                    <li>Progressed through multiple roles driving increasingly complex delivery</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Oracle -->
+                    <div class="timeline-company">
+                        <div class="timeline-logo-wrapper">
+                            <img src="Logos/Oracle Logo.webp" alt="Oracle" class="timeline-logo">
+                        </div>
+                        <div class="timeline-company-header">
+                            <span class="timeline-company-name">Oracle</span>
+                            <span class="timeline-company-tenure">2008 – 2013 · 5 years</span>
+                        </div>
+                        <div class="timeline-roles">
+                            <div class="timeline-role">
+                                <div class="timeline-role-header">
+                                    <span class="timeline-role-title">Senior Consultant — Telecom Products</span>
+                                    <span class="timeline-role-dates">2010 – 2013</span>
+                                </div>
+                                <ul>
+                                    <li>Worked with service integrators to implement end-to-end telecom OSS/BSS solutions</li>
+                                    <li>Installed Vodafone's production Order Management system for B2B</li>
+                                    <li>Collaborated with Huawei on OSS stack implementation</li>
+                                    <li>Travelled to client locations to solve complex integration challenges across teams</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-role">
+                                <div class="timeline-role-header">
+                                    <span class="timeline-role-title">Senior Developer — Telecom Products</span>
+                                    <span class="timeline-role-dates">2008 – 2010</span>
+                                </div>
+                                <ul>
+                                    <li>Contributed to product development in Java for Order Management and Inventory Management</li>
+                                    <li>Delivered key features for Oracle's telecom services product suite</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Virtusa / iMany -->
+                    <div class="timeline-company">
+                        <div class="timeline-logo-wrapper">
+                            <img src="Logos/Virtusa logo.webp" alt="Virtusa" class="timeline-logo">
+                        </div>
+                        <div class="timeline-company-header">
+                            <span class="timeline-company-name">Virtusa &amp; iMany</span>
+                            <span class="timeline-company-tenure">2005 – 2008 · 3 years</span>
+                        </div>
+                        <div class="timeline-roles">
+                            <div class="timeline-role">
+                                <div class="timeline-role-header">
+                                    <span class="timeline-role-title">Software Developer</span>
+                                    <span class="timeline-role-dates">2005 – 2008</span>
+                                </div>
+                                <ul>
+                                    <li>Campus hire at Virtusa; developed enterprise software solutions</li>
+                                    <li>At iMany (US): contributed to contract management tool, feature delivery, and production migrations</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SKILLS -->
+            <section>
+                <h2>Core Competencies</h2>
+                <ul class="skills-grid">
+                    <li>Enterprise Programme Delivery</li>
+                    <li>Engineering Leadership (160+)</li>
+                    <li>KPI/OKR Frameworks &amp; Governance</li>
+                    <li>Quality Management Systems (ISO)</li>
+                    <li>GRC Strategy &amp; Platform Delivery</li>
+                    <li>Budget Management (£8M+)</li>
+                    <li>Telecom OSS/BSS &amp; Order Mgmt</li>
+                    <li>Stakeholder &amp; Vendor Management</li>
+                    <li>Technology Transformation</li>
+                    <li>Agile / SAFe Delivery at Scale</li>
+                    <li>AWS &amp; Cloud Infrastructure</li>
+                    <li>Monolith-to-Microservices</li>
+                    <li>AI-Driven Development</li>
+                    <li>SDLC &amp; DevOps</li>
+                    <li>Cross-geography Leadership</li>
+                </ul>
+            </section>
+
+            <!-- ABOUT ME -->
+            <section>
+                <h2>About Me</h2>
+                <div class="about-me">
+                    <div class="about-card">
+                        <div class="about-icon">🎓</div>
+                        <div class="about-text">
+                            <strong>Lifelong Learner &amp; Explorer</strong>
+                            <p>20+ years in and still learning, still thriving. Curiosity drives me to stay ahead of the curve — from telecom to AI-driven transformation.</p>
+                        </div>
+                    </div>
+                    <div class="about-card">
+                        <div class="about-icon">🤝</div>
+                        <div class="about-text">
+                            <strong>People-First Leader</strong>
+                            <p>I believe employees are the biggest asset a company has. I build teams where people are happy, motivated, and cheering each other on — and the results follow naturally.</p>
+                        </div>
+                    </div>
+                    <div class="about-card">
+                        <div class="about-icon">🎯</div>
+                        <div class="about-text">
+                            <strong>Outcome-Driven &amp; Goal-Oriented</strong>
+                            <p>I lead with purpose — aligning teams towards a common goal, driving accountability through clarity, and turning vision into measurable outcomes.</p>
+                        </div>
+                    </div>
+                    <div class="about-card">
+                        <div class="about-icon">🧠</div>
+                        <div class="about-text">
+                            <strong>Culture Champion &amp; AI Advocate</strong>
+                            <p>A culture lead who has driven AI adoption to reimagine processes, elevate roles, and boost productivity — proving that innovation and people-centricity go hand in hand.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EDUCATION -->
+            <section>
+                <h2>Education &amp; Certifications</h2>
+                <div class="serpent-timeline">
+                    <div class="serpent-milestone">
+                        <div class="serpent-node">
+                            <img src="Logos/IIT Roorkee Logo.svg" alt="IIT Roorkee">
+                        </div>
+                        <div class="serpent-content">
+                            <strong>B.Tech</strong>
+                            <span class="serpent-institution">IIT Roorkee</span>
+                            <span class="serpent-year">2005</span>
+                        </div>
+                    </div>
+                    <div class="serpent-milestone">
+                        <div class="serpent-node">
+                            <img src="Logos/Institute_of_Management_Technology,_Ghaziabad_logo.png" alt="IMT Ghaziabad">
+                        </div>
+                        <div class="serpent-content">
+                            <strong>MBA</strong>
+                            <span class="serpent-institution">IMT Ghaziabad</span>
+                            <span class="serpent-year">2010</span>
+                        </div>
+                    </div>
+                    <div class="serpent-milestone">
+                        <div class="serpent-node">
+                            <img src="Logos/PMP logo.jpeg" alt="PMP">
+                        </div>
+                        <div class="serpent-content">
+                            <strong>PMP</strong>
+                            <span class="serpent-institution">PMI</span>
+                            <span class="serpent-year">2014</span>
+                        </div>
+                    </div>
+                    <div class="serpent-milestone">
+                        <div class="serpent-node">
+                            <img src="Logos/safe-logo.jpeg" alt="SAFe">
+                        </div>
+                        <div class="serpent-content">
+                            <strong>SAFe Certified</strong>
+                            <span class="serpent-institution">Scaled Agile</span>
+                            <span class="serpent-year">2014</span>
+                        </div>
+                    </div>
+                    <div class="serpent-milestone">
+                        <div class="serpent-node">
+                            <img src="Logos/IIT Madras Logo.jpg" alt="IIT Madras">
+                        </div>
+                        <div class="serpent-content">
+                            <strong>AI for Business Transformation</strong>
+                            <span class="serpent-institution">IIT Madras</span>
+                            <span class="serpent-year">2026</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
