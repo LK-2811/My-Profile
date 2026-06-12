@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lovekeshwar Ranga — Career Journey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           DESIGN TOKENS
+           ============================================ */
+        :root {
+            --color-hero: #0f172a;
+            --color-hero-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+            --color-scale-bg: linear-gradient(160deg, #0f172a 0%, #1e1b4b 40%, #312e81 70%, #1e1b4b 100%);
+            --color-white: #ffffff;
+            --color-grey: #f1f5f9;
+            --color-accent: #4f46e5;
+            --color-accent-hover: #4338ca;
+            --color-accent-light: rgba(79, 70, 229, 0.06);
+            --color-accent-border: rgba(79, 70, 229, 0.18);
+            --color-secondary: #06b6d4;
+            --color-emerald: #10b981;
+            --color-text: #0f172a;
+            --color-text-muted: #64748b;
+            --color-border: #e2e8f0;
+            --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 14px;
+            --radius-xl: 20px;
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-2xl: 48px;
+            --spacing-3xl: 64px;
+            --spacing-4xl: 96px;
+        }
+
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--color-text);
+            background: var(--color-white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           NAVIGATION DOTS
+           ============================================ */
+        .nav-dots {
+            position: fixed;
+            right: 32px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .nav-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(79, 70, 229, 0.2);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-dot.active {
+            background: var(--color-accent);
+            transform: scale(1.4);
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+        }
+
+        .nav-dot:hover {
+            background: var(--color-accent);
+            transform: scale(1.2);
+        }
+
+        .nav-dot::after {
+            content: attr(data-label);
+            position: absolute;
+            right: 22px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--color-hero);
+            color: var(--color-white);
+            padding: 5px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 0.6875rem;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .nav-dot:hover::after {
+            opacity: 1;
+        }
+
+        /* ============================================
+           SECTIONS — SHARED
+           ============================================ */
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-4xl) var(--spacing-3xl);
+            position: relative;
+        }
+
+        .section__inner {
+            max-width: 1080px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .section__heading {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-text);
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .section__subheading {
+            font-size: 1.0625rem;
+            text-align: center;
+            color: var(--color-text-muted);
+            margin-bottom: var(--spacing-2xl);
+            font-weight: 400;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ============================================
+           ANIMATIONS — FADE UP (SUBTLE)
+           ============================================ */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+        .delay-6 { transition-delay: 0.6s; }
+
+        /* ============================================
+           SECTION 1: HERO
+           ============================================ */
+        #hero {
+            background: var(--color-hero);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 20% 30%, rgba(79, 70, 229, 0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 80% 70%, rgba(6, 182, 212, 0.08) 0%, transparent 55%),
+                radial-gradient(ellipse 40% 30% at 50% 50%, rgba(16, 185, 129, 0.04) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* Subtle grid mesh overlay */
+        #hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 64px 64px;
+            pointer-events: none;
+        }
+
+        .hero__content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--color-white);
+        }
+
+        .hero__photo {
+            width: 136px;
+            height: 136px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.85);
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 16px 48px rgba(0, 0, 0, 0.3);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .hero__name {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--color-white);
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .hero__aka {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.35);
+            margin-bottom: var(--spacing-md);
+            font-weight: 400;
+        }
+
+        .hero__title {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .hero__tagline {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.45);
+            font-weight: 300;
+            margin-bottom: var(--spacing-3xl);
+            font-style: italic;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero__stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        .hero__stat {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 22px 28px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            min-width: 120px;
+        }
+
+        .hero__stat:hover {
+            transform: translateY(-2px);
+            border-color: rgba(79, 70, 229, 0.35);
+        }
+
+        .hero__stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-white);
+            line-height: 1.2;
+        }
+
+        .hero__stat-label {
+            font-size: 0.6875rem;
+            color: rgba(255, 255, 255, 0.45);
+            margin-top: var(--spacing-xs);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            font-weight: 500;
+        }
+
+        /* ============================================
+           SECTION 2: THE SCALE (DARK BACKGROUND)
+           ============================================ */
+        #scale {
+            background: var(--color-scale-bg);
+            position: relative;
+            overflow: hidden;
+            min-height: auto;
+            padding: var(--spacing-4xl) var(--spacing-3xl);
+        }
+
+        #scale::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 40% at 30% 20%, rgba(79, 70, 229, 0.15) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 50% at 70% 80%, rgba(6, 182, 212, 0.10) 0%, transparent 55%);
+            pointer-events: none;
+        }
+
+        #scale::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 48px 48px;
+            pointer-events: none;
+        }
+
+        .scale__inner {
+            max-width: 1080px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .scale__heading {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            color: var(--color-white);
+            letter-spacing: -0.5px;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .scale__narrative {
+            max-width: 780px;
+            margin: 0 auto var(--spacing-2xl);
+            text-align: center;
+            font-size: 1.0625rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.9;
+        }
+
+        .scale__narrative p {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .scale__narrative strong {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Glass-morphism impact cards */
+        .scale__impact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .scale__impact-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .scale__impact-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(79, 70, 229, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .scale__impact-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .scale__impact-title {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .scale__impact-desc {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        /* Human Impact Section */
+        .scale__human {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-2xl);
+            max-width: 880px;
+            margin: 0 auto var(--spacing-2xl);
+        }
+
+        .scale__human-title {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-secondary);
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .scale__human-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .scale__human-stat-number {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .scale__human-stat-label {
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.4;
+        }
+
+        .scale__human-quote {
+            text-align: center;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-style: italic;
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            max-width: 640px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Regulatory Badges */
+        .scale__badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+
+        .scale__badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease;
+        }
+
+        .scale__badge:hover {
+            background: rgba(79, 70, 229, 0.15);
+            border-color: rgba(79, 70, 229, 0.4);
+            color: var(--color-white);
+        }
+
+        /* ============================================
+           SECTION 3: SKILLS (GROUPED)
+           ============================================ */
+        #skills {
+            background: var(--color-grey);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #skills::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 40% at 80% 20%, rgba(79, 70, 229, 0.03) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 50% at 20% 80%, rgba(6, 182, 212, 0.02) 0%, transparent 55%);
+            pointer-events: none;
+        }
+
+        .skills__groups {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-xl);
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .skills__group {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            transition: all 0.2s ease;
+        }
+
+        .skills__group:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .skills__group-title {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-accent);
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .skills__group-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skills__pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 14px;
+            background: var(--color-grey);
+            border: 1px solid var(--color-border);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--color-text);
+            transition: all 0.2s ease;
+        }
+
+        .skills__pill:hover {
+            border-color: var(--color-accent-border);
+            background: var(--color-accent-light);
+            transform: translateY(-1px);
+        }
+
+        /* ============================================
+           SECTION 4: TIMELINE
+           ============================================ */
+        #timeline {
+            background: var(--color-white);
+            min-height: auto;
+            padding: var(--spacing-4xl) var(--spacing-3xl);
+        }
+
+        .timeline__container {
+            position: relative;
+            max-width: 880px;
+            margin: 0 auto;
+        }
+
+        .timeline__line {
+            position: absolute;
+            left: 38px;
+            top: 220px;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--color-accent), var(--color-secondary));
+            border-radius: 2px;
+            opacity: 0.4;
+        }
+
+        /* Education Ribbon */
+        .timeline__edu-ribbon {
+            background: var(--color-grey);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg) var(--spacing-xl);
+            margin-bottom: var(--spacing-2xl);
+            position: relative;
+            z-index: 3;
+        }
+
+        .timeline__edu-title {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-text-muted);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .timeline__edu-items {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            position: relative;
+            padding: 0 8px;
+        }
+
+        .timeline__edu-items::before {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: 32px;
+            right: 32px;
+            height: 2px;
+            background: linear-gradient(to right, var(--color-accent), var(--color-secondary));
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .timeline__edu-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline__edu-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--color-white);
+            border: 2px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .timeline__edu-badge:hover .timeline__edu-icon {
+            transform: scale(1.06);
+            border-color: var(--color-accent-border);
+            box-shadow: var(--shadow-md);
+        }
+
+        .timeline__edu-icon img {
+            width: 34px;
+            height: 34px;
+            object-fit: contain;
+        }
+
+        .timeline__edu-label {
+            text-align: center;
+            font-size: 0.6875rem;
+            color: var(--color-text-muted);
+            line-height: 1.3;
+        }
+
+        .timeline__edu-label strong {
+            display: block;
+            color: var(--color-text);
+            font-size: 0.75rem;
+        }
+
+        /* Timeline Items */
+        .timeline__item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            position: relative;
+            padding-left: 112px;
+        }
+
+        .timeline__node {
+            position: absolute;
+            left: 0;
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            background: var(--color-white);
+            border: 2px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            z-index: 2;
+            transition: border-color 0.2s ease;
+        }
+
+        .timeline__node:hover {
+            border-color: var(--color-accent-border);
+        }
+
+        .timeline__node img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .timeline__card {
+            background: var(--color-white);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg) var(--spacing-xl);
+            box-shadow: var(--shadow-sm);
+            width: 100%;
+            position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid var(--color-border);
+        }
+
+        .timeline__card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .timeline__card--bt-highlight {
+            border-left: 3px solid var(--color-accent);
+        }
+
+        .timeline__date {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .timeline__role {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 4px;
+        }
+
+        .timeline__company {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-text-muted);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .timeline__desc {
+            font-size: 0.8125rem;
+            color: var(--color-text-muted);
+            line-height: 1.7;
+        }
+
+        .timeline__desc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timeline__desc ul li {
+            padding-left: 14px;
+            position: relative;
+            margin-bottom: 3px;
+        }
+
+        .timeline__desc ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: 700;
+        }
+
+        /* Duration Bar with Flagpost */
+        .timeline__duration-bar {
+            margin-top: var(--spacing-md);
+            height: 5px;
+            border-radius: 3px;
+            background: rgba(79, 70, 229, 0.06);
+            position: relative;
+            overflow: visible;
+        }
+
+        .timeline__duration-fill {
+            height: 100%;
+            border-radius: 3px;
+            background: linear-gradient(90deg, var(--color-accent), var(--color-secondary));
+            transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+            width: 0;
+            position: relative;
+        }
+
+        .timeline__duration-fill.visible {
+            width: var(--bar-width);
+        }
+
+        /* Flagpost marker */
+        .timeline__duration-fill::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: -4px;
+            width: 2px;
+            height: 14px;
+            background: var(--color-accent);
+            border-radius: 1px;
+        }
+
+        .timeline__duration-fill::before {
+            content: attr(data-years);
+            position: absolute;
+            right: -8px;
+            top: -20px;
+            font-size: 0.625rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            white-space: nowrap;
+        }
+
+        .timeline__bt-badge {
+            display: inline-block;
+            background: var(--color-accent);
+            color: var(--color-white);
+            font-size: 0.625rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 100px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        /* ============================================
+           PRINT STYLES
+           ============================================ */
+        @media print {
+            .nav-dots { display: none; }
+            section { min-height: auto; padding: 32px 24px; page-break-inside: avoid; }
+            .fade-up { opacity: 1; transform: none; }
+            #hero, #scale { color-adjust: exact; -webkit-print-color-adjust: exact; }
+            .timeline__duration-fill { width: var(--bar-width) !important; }
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 1024px) {
+            .scale__impact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .skills__groups {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 72px 24px;
+            }
+
+            .hero__name { font-size: 2.5rem; }
+            .hero__stats { gap: 10px; }
+            .hero__stat { padding: 16px 20px; min-width: 100px; }
+            .hero__stat-number { font-size: 1.5rem; }
+
+            .section__heading { font-size: 1.875rem; }
+            .scale__heading { font-size: 1.875rem; }
+
+            .scale__impact-grid { grid-template-columns: 1fr 1fr; }
+            .scale__human-grid { grid-template-columns: 1fr; gap: var(--spacing-md); }
+
+            .skills__groups { grid-template-columns: 1fr; }
+
+            .timeline__item { padding-left: 96px; }
+            .timeline__line { left: 28px; }
+            .timeline__node { width: 56px; height: 56px; }
+            .timeline__node img { width: 36px; height: 36px; }
+
+            .nav-dots { right: 14px; }
+
+            .timeline__edu-items { flex-wrap: wrap; gap: 16px; }
+            .timeline__edu-items::before { display: none; }
+        }
+
+        @media (max-width: 480px) {
+            .hero__name { font-size: 2rem; }
+            .hero__stats { gap: 8px; }
+            .hero__stat { padding: 14px 16px; min-width: 90px; }
+            .hero__stat-number { font-size: 1.25rem; }
+
+            .scale__impact-grid { grid-template-columns: 1fr; }
+            .scale__impact-card { padding: var(--spacing-lg); }
+
+            .skills__group { padding: var(--spacing-lg); }
+            .skills__pill { font-size: 0.6875rem; padding: 6px 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Dots -->
+    <nav class="nav-dots" aria-label="Page navigation">
+        <button class="nav-dot active" data-section="hero" data-label="Hero" aria-label="Go to Hero section"></button>
+        <button class="nav-dot" data-section="scale" data-label="Scale" aria-label="Go to Scale section"></button>
+        <button class="nav-dot" data-section="skills" data-label="Skills" aria-label="Go to Skills section"></button>
+        <button class="nav-dot" data-section="timeline" data-label="Timeline" aria-label="Go to Timeline section"></button>
+    </nav>
+
+    <!-- ============================================
+         SECTION 1: HERO
+         ============================================ -->
+    <section id="hero">
+        <div class="hero__content">
+            <img src="Logos/LK Picture.jpeg" alt="Lovekeshwar Ranga" class="hero__photo fade-up">
+            <h1 class="hero__name fade-up delay-1">Lovekeshwar Ranga</h1>
+            <p class="hero__aka fade-up delay-2">aka LK</p>
+            <p class="hero__title fade-up delay-2">Senior Manager — Software Engineering</p>
+            <p class="hero__tagline fade-up delay-3">"Leading one of the largest Risk &amp; Compliance Transformations in UK Telecom"</p>
+            <div class="hero__stats fade-up delay-4">
+                <div class="hero__stat">
+                    <div class="hero__stat-number counter" data-target="20">0</div>
+                    <div class="hero__stat-label">Years+</div>
+                </div>
+                <div class="hero__stat">
+                    <div class="hero__stat-number counter" data-target="15">0</div>
+                    <div class="hero__stat-label">Squads</div>
+                </div>
+                <div class="hero__stat">
+                    <div class="hero__stat-number counter" data-target="80">0</div>
+                    <div class="hero__stat-label">People+</div>
+                </div>
+                <div class="hero__stat">
+                    <div class="hero__stat-number counter" data-target="5">0</div>
+                    <div class="hero__stat-label">Vendors</div>
+                </div>
+                <div class="hero__stat">
+                    <div class="hero__stat-number">£8M</div>
+                    <div class="hero__stat-label">Programme</div>
+                </div>
+                <div class="hero__stat">
+                    <div class="hero__stat-number counter" data-target="12">0</div>
+                    <div class="hero__stat-label">GRC Domains</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 2: THE SCALE OF WHAT I LEAD
+         ============================================ -->
+    <section id="scale">
+        <div class="scale__inner">
+            <h2 class="scale__heading fade-up">The Scale of What I Lead</h2>
+
+            <!-- Opening Narrative -->
+            <div class="scale__narrative fade-up delay-1">
+                <p>Imagine transforming how an <strong>85,000-person organisation</strong> manages risk and compliance — across every business unit, every country, every regulatory obligation. That's the programme I lead.</p>
+                <p>BT Group operates across <strong>180+ countries</strong>. Behind every service — compliance obligations spanning TSA, PCI DSS, NIS2, GDPR, ISO 27001, SOX, and NIST frameworks must be managed flawlessly. I lead the transformation of this entire GRC landscape.</p>
+            </div>
+
+            <!-- Impact Numbers (Glass-morphism cards) -->
+            <div class="scale__impact-grid fade-up delay-2">
+                <div class="scale__impact-card">
+                    <div class="scale__impact-number counter" data-target="12">0</div>
+                    <div class="scale__impact-title">Group Risk Categories</div>
+                    <div class="scale__impact-desc">Every risk domain in the enterprise</div>
+                </div>
+                <div class="scale__impact-card">
+                    <div class="scale__impact-number">12,000+</div>
+                    <div class="scale__impact-title">Metrics &amp; Controls</div>
+                    <div class="scale__impact-desc">Monitored, automated, governed</div>
+                </div>
+                <div class="scale__impact-card">
+                    <div class="scale__impact-number">200+</div>
+                    <div class="scale__impact-title">Stakeholders</div>
+                    <div class="scale__impact-desc">From ExCo to operational teams</div>
+                </div>
+                <div class="scale__impact-card">
+                    <div class="scale__impact-number">3 Lines</div>
+                    <div class="scale__impact-title">of Defence</div>
+                    <div class="scale__impact-desc">Business · Risk · Audit</div>
+                </div>
+            </div>
+
+            <!-- The Human Impact -->
+            <div class="scale__human fade-up delay-3">
+                <div class="scale__human-title">The Human Impact</div>
+                <div class="scale__human-grid">
+                    <div>
+                        <div class="scale__human-stat-number">8,500+</div>
+                        <div class="scale__human-stat-label">People impacted daily</div>
+                    </div>
+                    <div>
+                        <div class="scale__human-stat-number">78,000</div>
+                        <div class="scale__human-stat-label">Hours saved annually (15 min/person/day)</div>
+                    </div>
+                    <div>
+                        <div class="scale__human-stat-number">£3M+</div>
+                        <div class="scale__human-stat-label">YoY cost savings</div>
+                    </div>
+                </div>
+                <div class="scale__human-quote">
+                    "When you simplify compliance for 8,500 people by just 15 minutes a day — you give the business back 78,000 hours of productive time every year."
+                </div>
+            </div>
+
+            <!-- Regulatory Badges -->
+            <div class="scale__badges fade-up delay-4">
+                <span class="scale__badge">TSA</span>
+                <span class="scale__badge">PCI DSS</span>
+                <span class="scale__badge">NIS2</span>
+                <span class="scale__badge">GDPR</span>
+                <span class="scale__badge">ISO 27001</span>
+                <span class="scale__badge">SOX</span>
+                <span class="scale__badge">NIST</span>
+                <span class="scale__badge">DORA</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 3: SKILLS (GROUPED)
+         ============================================ -->
+    <section id="skills">
+        <div class="section__inner">
+            <h2 class="section__heading fade-up">Core Skills &amp; Capabilities</h2>
+            <p class="section__subheading fade-up delay-1">20+ years across engineering, delivery, and enterprise leadership</p>
+
+            <div class="skills__groups fade-up delay-2">
+                <!-- Group 1: Leadership & Delivery -->
+                <div class="skills__group">
+                    <div class="skills__group-title">Leadership &amp; Delivery</div>
+                    <div class="skills__group-pills">
+                        <span class="skills__pill">Large-Scale Programme Delivery</span>
+                        <span class="skills__pill">E2E SDLC Leadership</span>
+                        <span class="skills__pill">Multi-Vendor Coordination</span>
+                        <span class="skills__pill">Financial &amp; Budget Management (£8M+)</span>
+                        <span class="skills__pill">Stakeholder &amp; ExCo Engagement</span>
+                        <span class="skills__pill">People Leadership &amp; Coaching</span>
+                        <span class="skills__pill">Cross-Geography Team Management</span>
+                        <span class="skills__pill">Delivery Predictability &amp; OTD</span>
+                    </div>
+                </div>
+
+                <!-- Group 2: Technical & Architecture -->
+                <div class="skills__group">
+                    <div class="skills__group-title">Technical &amp; Architecture</div>
+                    <div class="skills__group-pills">
+                        <span class="skills__pill">Technology Transformation</span>
+                        <span class="skills__pill">Cloud &amp; AWS Migration</span>
+                        <span class="skills__pill">Microservices &amp; API Architecture</span>
+                        <span class="skills__pill">DevOps &amp; CI/CD Pipelines</span>
+                        <span class="skills__pill">Platform Modernisation</span>
+                        <span class="skills__pill">AI &amp; Spec-Driven Development</span>
+                        <span class="skills__pill">Data-Driven Delivery (DORA)</span>
+                        <span class="skills__pill">Integration Design</span>
+                    </div>
+                </div>
+
+                <!-- Group 3: Governance & Compliance -->
+                <div class="skills__group">
+                    <div class="skills__group-title">Governance &amp; Compliance</div>
+                    <div class="skills__group-pills">
+                        <span class="skills__pill">GRC Strategy &amp; Transformation</span>
+                        <span class="skills__pill">ISO 27001 / SOX / NIST / TSA</span>
+                        <span class="skills__pill">RAID &amp; Risk Management</span>
+                        <span class="skills__pill">Release &amp; Change Governance</span>
+                        <span class="skills__pill">Quality Management (ISO QMS)</span>
+                        <span class="skills__pill">Cyber Compliance Automation</span>
+                    </div>
+                </div>
+
+                <!-- Group 4: Methodologies & Certifications -->
+                <div class="skills__group">
+                    <div class="skills__group-title">Methodologies &amp; Certifications</div>
+                    <div class="skills__group-pills">
+                        <span class="skills__pill">Lean &amp; Agile at Scale (SAFe)</span>
+                        <span class="skills__pill">PMP Certified</span>
+                        <span class="skills__pill">CSM (Scrum Master)</span>
+                        <span class="skills__pill">Kanban / Flow Metrics</span>
+                        <span class="skills__pill">Continuous Improvement</span>
+                        <span class="skills__pill">OKR &amp; KPI Frameworks</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 4: CAREER TIMELINE
+         ============================================ -->
+    <section id="timeline">
+        <div class="section__inner">
+            <h2 class="section__heading fade-up">Career Journey</h2>
+            <p class="section__subheading fade-up delay-1">20+ years of progressive growth in enterprise engineering transformation and delivery</p>
+
+            <div class="timeline__container">
+                <div class="timeline__line"></div>
+
+                <!-- Education Ribbon -->
+                <div class="timeline__edu-ribbon fade-up">
+                    <div class="timeline__edu-title">🎓 Education &amp; Certifications</div>
+                    <div class="timeline__edu-items">
+                        <div class="timeline__edu-badge">
+                            <div class="timeline__edu-icon">
+                                <img src="Logos/IIT Roorkee Logo.svg" alt="IIT Roorkee">
+                            </div>
+                            <div class="timeline__edu-label"><strong>B.Tech</strong>IIT Roorkee · 2005</div>
+                        </div>
+                        <div class="timeline__edu-badge">
+                            <div class="timeline__edu-icon">
+                                <img src="Logos/Institute_of_Management_Technology,_Ghaziabad_logo.png" alt="IMT">
+                            </div>
+                            <div class="timeline__edu-label"><strong>MBA</strong>IMT Ghaziabad · 2010</div>
+                        </div>
+                        <div class="timeline__edu-badge">
+                            <div class="timeline__edu-icon">
+                                <img src="Logos/CSM.png" alt="CSM">
+                            </div>
+                            <div class="timeline__edu-label"><strong>CSM</strong>Scrum Alliance · 2014</div>
+                        </div>
+                        <div class="timeline__edu-badge">
+                            <div class="timeline__edu-icon">
+                                <img src="Logos/PMP logo.jpeg" alt="PMP">
+                            </div>
+                            <div class="timeline__edu-label"><strong>PMP</strong>PMI · 2014</div>
+                        </div>
+                        <div class="timeline__edu-badge">
+                            <div class="timeline__edu-icon">
+                                <img src="Logos/safe-logo.jpeg" alt="SAFe">
+                            </div>
+                            <div class="timeline__edu-label"><strong>SAFe</strong>Scaled Agile · 2014</div>
+                        </div>
+                        <div class="timeline__edu-badge">
+                            <div class="timeline__edu-icon">
+                                <img src="Logos/IIT Madras Logo.jpg" alt="IIT Madras" style="width:50px;height:50px;">
+                            </div>
+                            <div class="timeline__edu-label"><strong>AI for Business</strong>IIT Madras · 2026</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Virtusa -->
+                <div class="timeline__item fade-up">
+                    <div class="timeline__node">
+                        <img src="Logos/Virtusa logo.webp" alt="Virtusa">
+                    </div>
+                    <div class="timeline__card">
+                        <div class="timeline__date">2005 – 2008</div>
+                        <div class="timeline__role">Software Engineer</div>
+                        <div class="timeline__company">Virtusa &amp; iMany</div>
+                        <div class="timeline__desc">
+                            <ul>
+                                <li>Early IT services and enterprise software development</li>
+                                <li>Contract management and enterprise application delivery</li>
+                            </ul>
+                        </div>
+                        <div class="timeline__duration-bar"><div class="timeline__duration-fill" style="--bar-width: 14%" data-years="3 yrs"></div></div>
+                    </div>
+                </div>
+
+                <!-- Oracle Product Engineering -->
+                <div class="timeline__item fade-up delay-1">
+                    <div class="timeline__node">
+                        <img src="Logos/Oracle Logo.webp" alt="Oracle">
+                    </div>
+                    <div class="timeline__card">
+                        <div class="timeline__date">2008 – 2010</div>
+                        <div class="timeline__role">Product Engineer</div>
+                        <div class="timeline__company">Oracle — Product Engineering</div>
+                        <div class="timeline__desc">
+                            <ul>
+                                <li>Java product development for Telecom OSS stack</li>
+                                <li>Order Management &amp; Inventory Management systems</li>
+                                <li>Product engineering at global scale</li>
+                            </ul>
+                        </div>
+                        <div class="timeline__duration-bar"><div class="timeline__duration-fill" style="--bar-width: 24%" data-years="5 yrs"></div></div>
+                    </div>
+                </div>
+
+                <!-- Oracle Consulting -->
+                <div class="timeline__item fade-up delay-2">
+                    <div class="timeline__node">
+                        <img src="Logos/Oracle Logo.webp" alt="Oracle">
+                    </div>
+                    <div class="timeline__card">
+                        <div class="timeline__date">2010 – 2013</div>
+                        <div class="timeline__role">Solution Consultant</div>
+                        <div class="timeline__company">Oracle — Consulting</div>
+                        <div class="timeline__desc">
+                            <ul>
+                                <li>Solution consulting for major telecom operators</li>
+                                <li>Vodafone B2B deployment and Huawei OSS integration</li>
+                                <li>Client-site delivery across geographies</li>
+                            </ul>
+                        </div>
+                        <div class="timeline__duration-bar"><div class="timeline__duration-fill" style="--bar-width: 38%" data-years="8 yrs"></div></div>
+                    </div>
+                </div>
+
+                <!-- BT Lead Developer -->
+                <div class="timeline__item fade-up delay-3">
+                    <div class="timeline__node">
+                        <img src="Logos/BT Logo.jpeg" alt="BT">
+                    </div>
+                    <div class="timeline__card timeline__card--bt-highlight">
+                        <div class="timeline__date">2013 – 2017 <span class="timeline__bt-badge">12+ Years at BT</span></div>
+                        <div class="timeline__role">Lead Developer</div>
+                        <div class="timeline__company">BT — Technology</div>
+                        <div class="timeline__desc">
+                            <ul>
+                                <li>Order orchestration and management systems</li>
+                                <li>Technology transformation for BT's core systems</li>
+                                <li>Deep domain expertise in telecom order lifecycle</li>
+                            </ul>
+                        </div>
+                        <div class="timeline__duration-bar"><div class="timeline__duration-fill" style="--bar-width: 57%" data-years="12 yrs"></div></div>
+                    </div>
+                </div>
+
+                <!-- BT Engineering Manager -->
+                <div class="timeline__item fade-up delay-1">
+                    <div class="timeline__node">
+                        <img src="Logos/BT Logo.jpeg" alt="BT">
+                    </div>
+                    <div class="timeline__card timeline__card--bt-highlight">
+                        <div class="timeline__date">2017 – 2022</div>
+                        <div class="timeline__role">Engineering Manager — MySD &amp; AIB</div>
+                        <div class="timeline__company">BT — Digital</div>
+                        <div class="timeline__desc">
+                            <ul>
+                                <li>Led transformation to simplify Order Orchestration for BT Global</li>
+                                <li>Launched SD-WAN, VPN, and Broadband services</li>
+                                <li>Resolved inter-component conflicts across domains</li>
+                                <li>Migrated on-prem to AWS, monolith to microservices</li>
+                            </ul>
+                        </div>
+                        <div class="timeline__duration-bar"><div class="timeline__duration-fill" style="--bar-width: 76%" data-years="16 yrs"></div></div>
+                    </div>
+                </div>
+
+                <!-- BT Senior Manager -->
+                <div class="timeline__item fade-up delay-2">
+                    <div class="timeline__node">
+                        <img src="Logos/BT Logo.jpeg" alt="BT">
+                    </div>
+                    <div class="timeline__card timeline__card--bt-highlight">
+                        <div class="timeline__date">2022 – Present</div>
+                        <div class="timeline__role">Senior Manager — GRC Transformation</div>
+                        <div class="timeline__company">BT — Digital Risk &amp; Compliance</div>
+                        <div class="timeline__desc">
+                            <ul>
+                                <li>£8M programme, 80+ team across 15 squads</li>
+                                <li>2200+ controls automated, 50+ processes transformed</li>
+                                <li>Replaced legacy COTS &amp; SaaS GRC tools</li>
+                                <li>ISO, TSA, PCI DSS, NIST compliance transformation</li>
+                                <li>Delivered BCM app in 2 weeks with AI</li>
+                            </ul>
+                        </div>
+                        <div class="timeline__duration-bar"><div class="timeline__duration-fill" style="--bar-width: 100%" data-years="21 yrs"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         JAVASCRIPT
+         ============================================ -->
+    <script>
+        // IntersectionObserver for fade-up animations
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+
+                    // Trigger counter animations within this element
+                    const counters = entry.target.querySelectorAll('.counter');
+                    counters.forEach(counter => animateCounter(counter));
+
+                    // If this element itself is a counter
+                    if (entry.target.classList.contains('counter')) {
+                        animateCounter(entry.target);
+                    }
+
+                    // Trigger duration bar fill
+                    const bars = entry.target.querySelectorAll('.timeline__duration-fill');
+                    bars.forEach(bar => bar.classList.add('visible'));
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe all animated elements
+        document.querySelectorAll('.fade-up, .counter').forEach(el => {
+            fadeObserver.observe(el);
+        });
+
+        // Observe timeline items for duration bars
+        document.querySelectorAll('.timeline__item').forEach(el => {
+            fadeObserver.observe(el);
+        });
+
+        // Animated counter
+        function animateCounter(el) {
+            if (el.dataset.animated) return;
+            el.dataset.animated = 'true';
+
+            const target = parseInt(el.dataset.target);
+            if (isNaN(target)) return;
+
+            const duration = 2000;
+            const start = performance.now();
+
+            function update(now) {
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = Math.round(eased * target);
+
+                el.textContent = current + '+';
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    el.textContent = target + '+';
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        // Navigation dots — active state on scroll
+        const sections = document.querySelectorAll('section');
+        const navDots = document.querySelectorAll('.nav-dot');
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const sectionId = entry.target.id;
+                    navDots.forEach(dot => {
+                        dot.classList.toggle('active', dot.dataset.section === sectionId);
+                    });
+                }
+            });
+        }, { threshold: 0.4 });
+
+        sections.forEach(section => sectionObserver.observe(section));
+
+        // Navigation dots — click to scroll
+        navDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const target = document.getElementById(dot.dataset.section);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
